@@ -3,11 +3,8 @@ import Launch from "src/app/models/Launch";
 
 @Component({
   selector: "app-launch-card",
-  templateUrl: "./launch-card.component.html",
+  templateUrl: "./launch-card.component.html"
 })
-export class LaunchCardComponent implements OnInit {
+export class LaunchCardComponent {
   @Input() launch: Launch;
-  constructor() {}
-
-  ngOnInit() {}
 }
