@@ -1,7 +1,29 @@
+<div class="tabs is-centered">
+  <ul>
+    <li
+      (click)="switchLaunchType('upcoming')"
+      [class.is-active]="launchType == 'upcoming'"
+    >
+      <a> upcoming</a>
+    </li>
+    <li
+      (click)="switchLaunchType('successful')"
+      [class.is-active]="launchType == 'successful'"
+    >
+      <a>successful</a>
+    </li>
+    <li
+      (click)="switchLaunchType('failed')"
+      [class.is-active]="launchType == 'failed'"
+    >
+      <a>failed</a>
+    </li>
+  </ul>
+</div>
 <section role="feed" class="section columns is-multiline ">
   <app-launch-card
     class="column is-one-third"
-    *ngFor="let launch of launches"
+    *ngFor="let launch of currentLaunches"
     [launch]="launch"
   >
   </app-launch-card>
