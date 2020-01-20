@@ -20,7 +20,7 @@ export class LaunchesContainerComponent implements OnInit {
   constructor(private apiService: APIService) {}
 
   async ngOnInit() {
-    const launches = await this.apiService.getLaunches();
+    const launches = await this.apiService.get<Launch>("launches");
     this.launches = {
       upcoming: launches.filter(({ upcoming }) => upcoming),
       successful: launches.filter(({ launch_success }) => launch_success),

@@ -39,7 +39,7 @@ describe("LaunchesContainerComponent", () => {
     }
   ];
   const APIServiceMock = {
-    getLaunches: jest.fn(() => launches)
+    get: jest.fn(() => launches)
   };
   it("should render", async () => {
     const { getByRole } = await render(LaunchesContainerComponent, {
@@ -48,9 +48,9 @@ describe("LaunchesContainerComponent", () => {
     });
 
     await wait(() => {
-      expect(APIServiceMock.getLaunches).toHaveBeenCalledTimes(1);
+      expect(APIServiceMock.get).toHaveBeenCalledTimes(1);
       //@ts-ignore
-      expect(APIServiceMock.getLaunches).toHaveReturnedWith(launches);
+      expect(APIServiceMock.get).toHaveReturnedWith(launches);
     });
   });
 });
