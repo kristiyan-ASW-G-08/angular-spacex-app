@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 
-import { LaunchService } from "./launch.service";
+import { LaunchService } from "./api.service";
 
 describe("LaunchService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));

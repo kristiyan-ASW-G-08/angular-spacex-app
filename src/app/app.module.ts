@@ -8,6 +8,8 @@ import { LaunchCardComponent } from "./components/launch-card/launch-card.compon
 import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./components/home/home.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { RocketsContainerComponent } from './components/rockets-container/rockets-container.component';
+import { RocketCardComponent } from './components/rocket-card/rocket-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AppRoutingModule } from "./app-routing.module";
     LaunchesContainerComponent,
     LaunchCardComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    RocketsContainerComponent,
+    RocketCardComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],

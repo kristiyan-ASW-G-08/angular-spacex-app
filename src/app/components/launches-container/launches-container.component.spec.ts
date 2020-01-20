@@ -1,7 +1,7 @@
 import { render, wait } from "@testing-library/angular";
 import { LaunchesContainerComponent } from "./launches-container.component";
 import Launch from "src/app/models/Launch";
-import { LaunchService } from "src/app/services/launch-service/launch.service";
+import { APIService } from "src/app/services/api-service/api.service";
 import { LaunchCardComponent } from "../launch-card/launch-card.component";
 
 jest.mock("@angular/common/http");
@@ -38,19 +38,19 @@ describe("LaunchesContainerComponent", () => {
       }
     }
   ];
-  const LaunchServiceMock = {
+  const APIServiceMock = {
     getLaunches: jest.fn(() => launches)
   };
   it("should render", async () => {
     const { getByRole } = await render(LaunchesContainerComponent, {
       declarations: [LaunchCardComponent],
-      providers: [{ provide: LaunchService, useValue: LaunchServiceMock }]
+      providers: [{ provide: APIService, useValue: APIServiceMock }]
     });
 
     await wait(() => {
-      expect(LaunchServiceMock.getLaunches).toHaveBeenCalledTimes(1);
+      expect(APIServiceMock.getLaunches).toHaveBeenCalledTimes(1);
       //@ts-ignore
-      expect(LaunchServiceMock.getLaunches).toHaveReturnedWith(launches);
+      expect(APIServiceMock.getLaunches).toHaveReturnedWith(launches);
     });
   });
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import Launch from "src/app/models/Launch";
-import { LaunchService } from "src/app/services/launch-service/launch.service";
+import { APIService } from "src/app/services/api-service/api.service";
 
 @Component({
   selector: "app-launches-container",
@@ -17,16 +17,15 @@ export class LaunchesContainerComponent implements OnInit {
   } = { upcoming: [], successful: [], failed: [] };
   currentLaunches: Launch[] = [];
   launchType: "upcoming" | "successful" | "failed" = "upcoming";
-  constructor(private launchService: LaunchService) {}
+  constructor(private apiService: APIService) {}
 
   async ngOnInit() {
-    const launches = await this.launchService.getLaunches();
+    const launches = await this.apiService.getLaunches();
     this.launches = {
       upcoming: launches.filter(({ upcoming }) => upcoming),
       successful: launches.filter(({ launch_success }) => launch_success),
       failed: launches.filter(({ launch_success }) => !launch_success)
     };
-  
 
     this.currentLaunches = [...this.launches.upcoming];
   }
