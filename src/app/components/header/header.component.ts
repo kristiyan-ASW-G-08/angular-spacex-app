@@ -7,7 +7,6 @@ import { Component, ViewChild } from "@angular/core";
 export class HeaderComponent {
   isActive: boolean = false;
   toggleIsActive() {
-    console.log(this.isActive);
     this.isActive = !this.isActive;
   }
 }

@@ -1,0 +1,21 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{ story.title }}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      {{ story.details }}
+      <br />
+      <time [dateTime]="story.event_date_utc">
+        {{ story.event_date_utc | date }}</time
+      >
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="{{ story.links.article }}" class="card-footer-item">Article</a>
+    <a href="{{ story.links.wikipedia }}" class="card-footer-item">Wikipedia</a>
+    <a href="{{ story.links.reddit }}" class="card-footer-item">Reddit</a>
+  </footer>
+</div>

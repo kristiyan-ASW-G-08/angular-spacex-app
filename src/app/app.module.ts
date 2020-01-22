@@ -10,6 +10,8 @@ import { HomeComponent } from "./components/home/home.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { RocketsContainerComponent } from './components/rockets-container/rockets-container.component';
 import { RocketCardComponent } from './components/rocket-card/rocket-card.component';
+import { HistoryCardComponent } from './components/history-card/history-card.component';
+import { HistoryContainerComponent } from './components/history-container/history-container.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { RocketCardComponent } from './components/rocket-card/rocket-card.compon
     HeaderComponent,
     HomeComponent,
     RocketsContainerComponent,
-    RocketCardComponent
+    RocketCardComponent,
+    HistoryCardComponent,
+    HistoryContainerComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
