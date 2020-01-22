@@ -12,6 +12,7 @@ import { RocketsContainerComponent } from './components/rockets-container/rocket
 import { RocketCardComponent } from './components/rocket-card/rocket-card.component';
 import { HistoryCardComponent } from './components/history-card/history-card.component';
 import { HistoryContainerComponent } from './components/history-container/history-container.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HistoryContainerComponent } from './components/history-container/histor
     RocketsContainerComponent,
     RocketCardComponent,
     HistoryCardComponent,
-    HistoryContainerComponent
+    HistoryContainerComponent,
+    TabsComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],

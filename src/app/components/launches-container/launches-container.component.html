@@ -1,25 +1,4 @@
-<div class="tabs is-centered">
-  <ul>
-    <li
-      (click)="switchLaunchType('upcoming')"
-      [class.is-active]="launchType == 'upcoming'"
-    >
-      <a> upcoming</a>
-    </li>
-    <li
-      (click)="switchLaunchType('successful')"
-      [class.is-active]="launchType == 'successful'"
-    >
-      <a>successful</a>
-    </li>
-    <li
-      (click)="switchLaunchType('failed')"
-      [class.is-active]="launchType == 'failed'"
-    >
-      <a>failed</a>
-    </li>
-  </ul>
-</div>
+<app-tabs [tabs]="tabs"> </app-tabs>
 <section role="feed" class="section columns is-multiline ">
   <app-launch-card
     class="column is-one-third"

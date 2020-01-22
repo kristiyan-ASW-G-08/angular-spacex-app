@@ -1,0 +1,11 @@
+<div class="tabs is-centered">
+  <ul>
+    <li
+      (click)="switchTabs(tab.name)"
+      *ngFor="let tab of tabs"
+      [class.is-active]="currentTab.name == tab.name"
+    >
+      <a>{{ tab.name }}</a>
+    </li>
+  </ul>
+</div>
