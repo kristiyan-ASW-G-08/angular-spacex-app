@@ -3,6 +3,7 @@ import { LaunchesContainerComponent } from "./launches-container.component";
 import Launch from "src/app/models/Launch";
 import { APIService } from "src/app/services/api-service/api.service";
 import { LaunchCardComponent } from "../launch-card/launch-card.component";
+import { TabsComponent } from "../tabs/tabs.component";
 
 jest.mock("@angular/common/http");
 
@@ -43,7 +44,7 @@ describe("LaunchesContainerComponent", () => {
   };
   it("should render", async () => {
     const { getByRole } = await render(LaunchesContainerComponent, {
-      declarations: [LaunchCardComponent],
+      declarations: [LaunchCardComponent, TabsComponent],
       providers: [{ provide: APIService, useValue: APIServiceMock }]
     });
 

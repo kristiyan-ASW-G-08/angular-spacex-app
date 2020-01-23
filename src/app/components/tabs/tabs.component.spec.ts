@@ -2,23 +2,29 @@ import { render } from "@testing-library/angular";
 import { TabsComponent } from "./tabs.component";
 describe("TabsComponent", () => {
   afterEach(jest.clearAllMocks);
-  const tabs = [
-    { name: "upcoming", event: jest.fn() },
-    { name: "successful", event: jest.fn() },
-    { name: "failed", event: jest.fn() }
-  ];
+  const tabClick = jest.fn();
+  const tabs = {
+    tab1: [],
+    tab2: [],
+    tab3: []
+  };
   //@ts-ignore
-  it.each(tabs)("", async ({ name, event }) => {
+  it.each(Object.keys(tabs))("", async key => {
     const { queryByText, click } = await render(TabsComponent, {
-      componentProperties: { tabs }
+      componentProperties: {
+        tabs,
+        tabClick: {
+          emit: tabClick
+        } as any
+      }
     });
 
-    const tab = queryByText(name);
+    const tab = queryByText(key);
 
     expect(tab).toBeTruthy();
 
     click(tab);
 
-    expect(event).toHaveBeenCalledTimes(1);
+    expect(tabClick).toHaveBeenCalledTimes(1);
   });
 });

@@ -5,6 +5,11 @@ import { LaunchesContainerComponent } from "../launches-container/launches-conta
 import { AppComponent } from "src/app/app.component";
 import { LaunchCardComponent } from "../launch-card/launch-card.component";
 import { HomeComponent } from "../home/home.component";
+import { RocketsContainerComponent } from "../rockets-container/rockets-container.component";
+import { RocketCardComponent } from "../rocket-card/rocket-card.component";
+import { HistoryContainerComponent } from "../history-container/history-container.component";
+import { HistoryCardComponent } from "../history-card/history-card.component";
+import { TabsComponent } from "../tabs/tabs.component";
 
 describe("HeaderComponent", () => {
   it("should render", async () => {
@@ -14,7 +19,12 @@ describe("HeaderComponent", () => {
         LaunchesContainerComponent,
         LaunchCardComponent,
         HeaderComponent,
-        HomeComponent
+        HomeComponent,
+        HistoryContainerComponent,
+        HistoryCardComponent,
+        RocketsContainerComponent,
+        RocketCardComponent,
+        TabsComponent
       ],
       routes
     });
@@ -28,7 +38,12 @@ describe("HeaderComponent", () => {
         LaunchesContainerComponent,
         LaunchCardComponent,
         HeaderComponent,
-        HomeComponent
+        HomeComponent,
+        HistoryContainerComponent,
+        HistoryCardComponent,
+        RocketsContainerComponent,
+        RocketCardComponent,
+        TabsComponent
       ],
       routes
     });

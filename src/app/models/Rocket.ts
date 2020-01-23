@@ -2,6 +2,7 @@ export default interface Launch {
   first_flight: string;
   country: string;
   company: string;
+  active: boolean;
   height: {
     meters: number;
     feet: number;

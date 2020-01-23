@@ -1,11 +1,11 @@
 <div class="tabs is-centered">
   <ul>
     <li
-      (click)="switchTabs(tab.name)"
-      *ngFor="let tab of tabs"
-      [class.is-active]="currentTab.name == tab.name"
+      *ngFor="let item of tabs | keyvalue"
+      [class.is-active]="currentTab == item.key"
+      (click)="onTabClick(item.key)"
     >
-      <a>{{ tab.name }}</a>
+      <a>{{ item.key }}</a>
     </li>
   </ul>
 </div>

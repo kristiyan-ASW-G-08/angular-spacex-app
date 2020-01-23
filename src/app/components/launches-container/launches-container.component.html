@@ -1,4 +1,4 @@
-<app-tabs [tabs]="tabs"> </app-tabs>
+<app-tabs [tabs]="launches" (tabClick)="switchLaunchType($event)"> </app-tabs>
 <section role="feed" class="section columns is-multiline ">
   <app-launch-card
     class="column is-one-third"

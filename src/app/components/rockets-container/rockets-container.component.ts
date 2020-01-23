@@ -7,11 +7,22 @@ import { APIService } from "src/app/services/api-service/api.service";
   templateUrl: "./rockets-container.component.html"
 })
 export class RocketsContainerComponent implements OnInit {
-  rockets: Rocket[] = [];
+  rockets: { active: Rocket[]; inactive: Rocket[] } = {
+    active: [],
+    inactive: []
+  };
+  currentRockets: Rocket[] = [];
 
   constructor(private apiService: APIService) {}
 
   async ngOnInit() {
-    this.rockets = await this.apiService.get<Rocket>("rockets");
+    const rockets = await this.apiService.get<Rocket>("rockets");
+    this.rockets = {
+      active: rockets.filter(({ active }) => active),
+      inactive: rockets.filter(({ active }) => !active)
+    };
+  }
+  switchRocketType(rocketType: "active" | "inactive") {
+    this.currentRockets = [...this.rockets[rocketType]];
   }
 }

@@ -2,6 +2,7 @@ import { render, wait } from "@testing-library/angular";
 import { RocketsContainerComponent } from "./rockets-container.component";
 import { APIService } from "src/app/services/api-service/api.service";
 import { RocketCardComponent } from "../rocket-card/rocket-card.component";
+import { TabsComponent } from "../tabs/tabs.component";
 
 jest.mock("@angular/common/http");
 
@@ -29,7 +30,7 @@ describe("RocketsContainerComponent", () => {
   };
   it("should render", async () => {
     const { getByRole } = await render(RocketsContainerComponent, {
-      declarations: [RocketCardComponent],
+      declarations: [RocketCardComponent, TabsComponent],
       providers: [{ provide: APIService, useValue: APIServiceMock }]
     });
 

@@ -12,6 +12,5 @@ export class HistoryContainerComponent implements OnInit {
 
   async ngOnInit() {
     this.stories = await this.apiService.get<Story>("history");
-    console.log(this.stories);
   }
 }

@@ -1,23 +1,21 @@
-import { Component, Input, OnInit } from "@angular/core";
-
-interface Tab {
-  name: string;
-  event: Function;
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+interface Tabs {
+  [key: string]: any[];
 }
 @Component({
   selector: "app-tabs",
   templateUrl: "./tabs.component.html"
 })
 export class TabsComponent implements OnInit {
-  @Input() tabs: Tab[] = [];
-  @Input() event: Function;
-  currentTab: Tab;
+  @Input() tabs: Tabs = {};
+  @Output() tabClick: EventEmitter<string> = new EventEmitter();
+  currentTab: string;
   constructor() {}
   ngOnInit() {
-    this.currentTab = this.tabs[0];
+    this.currentTab = Object.keys(this.tabs)[0];
   }
-  switchTabs(tabName: string) {
-    this.currentTab = this.tabs.find(({ name }) => name === tabName);
-    this.currentTab.event(this.currentTab.name);
+  onTabClick(key: string): void {
+    this.currentTab = key;
+    this.tabClick.emit(key);
   }
 }

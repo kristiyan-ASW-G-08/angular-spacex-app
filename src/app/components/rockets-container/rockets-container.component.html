@@ -1,7 +1,8 @@
+<app-tabs [tabs]="rockets" (tabClick)="switchRocketType($event)"> </app-tabs>
 <section role="feed" class="section columns is-multiline ">
   <app-rocket-card
     class="column is-one-third"
-    *ngFor="let rocket of rockets"
+    *ngFor="let rocket of currentRockets"
     [rocket]="rocket"
   >
   </app-rocket-card>

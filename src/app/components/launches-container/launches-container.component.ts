@@ -15,32 +15,26 @@ export class LaunchesContainerComponent implements OnInit {
   successfulLaunches: Launch[];
   failedLaunches: Launch[];
   launches: {
-    upcoming: Launch[];
     successful: Launch[];
     failed: Launch[];
+    upcoming: Launch[];
   } = { upcoming: [], successful: [], failed: [] };
   currentLaunches: Launch[] = [];
   launchType: "upcoming" | "successful" | "failed" = "upcoming";
 
-  tabs: Tab[] = [
-    { name: "upcoming", event: () => this.switchLaunchType("upcoming") },
-    { name: "successful", event: () => this.switchLaunchType("successful") },
-    { name: "failed", event: () => this.switchLaunchType("failed") }
-  ];
   constructor(private apiService: APIService) {}
 
   async ngOnInit() {
     const launches = await this.apiService.get<Launch>("launches");
     this.launches = {
-      upcoming: launches.filter(({ upcoming }) => upcoming),
       successful: launches.filter(({ launch_success }) => launch_success),
-      failed: launches.filter(({ launch_success }) => !launch_success)
+      failed: launches.filter(({ launch_success }) => !launch_success),
+      upcoming: launches.filter(({ upcoming }) => upcoming)
     };
 
     this.currentLaunches = [...this.launches.upcoming];
   }
   switchLaunchType(launchType: "upcoming" | "successful" | "failed") {
-    console.log(this);
     this.launchType = launchType;
     this.currentLaunches = [...this.launches[launchType]];
   }
