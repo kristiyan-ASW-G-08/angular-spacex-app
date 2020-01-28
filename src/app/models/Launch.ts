@@ -12,4 +12,5 @@ export default interface Launch {
   links: {
     [key: string]: string | string[];
   };
+  launch_date_utc: number;
 }

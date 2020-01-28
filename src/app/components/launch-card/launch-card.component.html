@@ -22,13 +22,15 @@
         <p class="subtitle is-6">
           Launch site: {{ launch.launch_site.site_name_long }}
         </p>
+        <time class="subtitle is-6" datetime="launch.launch_date_utc"
+          >Date: {{ launch.launch_date_utc | date: "MM/dd/yy" }}</time
+        >
       </div>
     </div>
 
     <div class="content">
       {{ launch.details }}
       <br />
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
   </div>
 </article>
